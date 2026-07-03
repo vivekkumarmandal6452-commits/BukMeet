@@ -38,19 +38,21 @@ exports.protect = async (req, res, next) => {
 
     const decoded = jwt.verify(token, secret);
 
-    if (mongoose.connection.readyState !== 1 && decoded.id === demoUser.id) {
+    // Always allow demo admin, even if MongoDB is offline/initializing
+    if (decoded.id === demoUser.id) {
       req.user = demoUser;
       return next();
     }
 
     req.user = await User.findById(decoded.id);
-    
+
     if (!req.user) {
       return res.status(401).json({
         success: false,
         message: 'User not found'
       });
     }
+
 
     if (!req.user.isActive) {
       return res.status(401).json({
