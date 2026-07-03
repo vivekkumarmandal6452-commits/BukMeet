@@ -166,7 +166,9 @@ exports.login = async (req, res) => {
 // @access  Private
 exports.getMe = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1 && req.user?.id === demoUser.id) {
+    // Demo fallback: token ke andar demo-admin id hoti hai, aur protect middleware
+    // mongodb offline ho tab bhi req.user set karta hai.
+    if (req.user?.id === demoUser.id || req.user?._id?.toString() === demoUser.id) {
       return res.status(200).json({
         success: true,
         user: demoUser
@@ -182,7 +184,7 @@ exports.getMe = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error?.message || 'Failed to fetch current user'
     });
   }
 };
