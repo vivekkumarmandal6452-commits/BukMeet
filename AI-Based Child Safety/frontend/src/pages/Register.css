@@ -1,0 +1,99 @@
+.register-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.72)),
+        url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    padding:24px;
+}
+
+.register-container{
+    width:min(460px, 100%);
+    background:rgba(255, 255, 255, 0.96);
+    padding:35px;
+    border:1px solid rgba(255, 255, 255, 0.56);
+    border-radius:8px;
+    box-shadow:0 28px 70px rgba(15,23,42,.32);
+    backdrop-filter:blur(16px);
+}
+
+.register-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.register-header svg{
+    color:var(--primary);
+}
+
+.register-header h2{
+    margin:10px 0;
+    color:var(--text);
+    font-size:26px;
+}
+
+.register-header p{
+    color:var(--text-muted);
+    font-size:14px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:600;
+    color:#334155;
+    font-size:14px;
+}
+
+.form-control{
+    width:100%;
+    min-height:44px;
+    padding:11px 13px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    font-size:14px;
+}
+
+.btn-register{
+    width:100%;
+    min-height:44px;
+    padding:13px;
+    border:none;
+    background:var(--primary);
+    color:white;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:15px;
+    transition:background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-register:hover{
+    background:var(--primary-dark);
+    transform:translateY(-1px);
+    box-shadow:var(--shadow-sm);
+}
+
+.bottom-text{
+    margin-top:20px;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:14px;
+}
+
+.bottom-text a{
+    margin-left:8px;
+    text-decoration:none;
+    font-weight:bold;
+    color:var(--primary);
+}
