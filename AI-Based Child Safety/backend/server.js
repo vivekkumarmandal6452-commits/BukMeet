@@ -66,14 +66,16 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Root
-app.get("/", (req, res) => {
-  res.json({
-    success: true,
-    message: "AI-Based Child Safety & Post-Adoption Monitoring System API",
-    version: "1.0.0",
+// Root (API info in non-production; production serves React frontend)
+if (process.env.NODE_ENV !== "production") {
+  app.get("/", (req, res) => {
+    res.json({
+      success: true,
+      message: "AI-Based Child Safety & Post-Adoption Monitoring System API",
+      version: "1.0.0",
+    });
   });
-});
+}
 
 // Production
 if (process.env.NODE_ENV === "production") {
