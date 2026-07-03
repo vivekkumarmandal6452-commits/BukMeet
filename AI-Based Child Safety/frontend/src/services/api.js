@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+// Avoid CSP/connect-src issues in production by defaulting to same-origin.
+// In production, backend is served from the same server (see backend/server.js).
+const apiBaseURL = process.env.REACT_APP_API_URL || '/api';
+
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: apiBaseURL,
   headers: {
     'Content-Type': 'application/json'
   }
